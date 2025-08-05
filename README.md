@@ -47,7 +47,7 @@ A modern, responsive JavaScript Calculator with light/dark theme toggle, localSt
 
 
 
-> 📷 *Tip: Add screenshots to the `/screenshots` folder in your repository for better showcase.*
+
 
 ---
 
@@ -59,4 +59,5 @@ A modern, responsive JavaScript Calculator with light/dark theme toggle, localSt
 ├── style.css
 ├── script.js
 └── README.md
+
 
