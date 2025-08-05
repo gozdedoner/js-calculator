@@ -46,8 +46,6 @@ A modern, responsive JavaScript Calculator with light/dark theme toggle, localSt
 ## 📸 Screenshots<img width="785" height="601" alt="c1" src="https://github.com/user-attachments/assets/4a85c7e8-25f4-438c-baed-3359533dea4b" />
 
 
-![JS Calculator Light Mode](https://raw.githubusercontent.com/gozdedoner/js-calculator/main/screenshots/light-mode.png)
-![JS Calculator Dark Mode](https://raw.githubusercontent.com/gozdedoner/js-calculator/main/screenshots/dark-mode.png)
 
 > 📷 *Tip: Add screenshots to the `/screenshots` folder in your repository for better showcase.*
 
@@ -61,3 +59,4 @@ A modern, responsive JavaScript Calculator with light/dark theme toggle, localSt
 ├── style.css
 ├── script.js
 └── README.md
+
