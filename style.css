@@ -1,133 +1,146 @@
 
-body {
+* { box-sizing: border-box; }
+
+html, body {
   margin: 0;
   padding: 0;
-  background-color: #e6fafa; 
+  height: 100%;
   font-family: "Segoe UI", sans-serif;
+  background-color: #dff2f2;
+}
+
+body {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center;   /* dikey ortalama */
   height: 100vh;
 }
 
-body.dark-mode {
-  background-color: #111; 
-}
+body.dark-mode { background-color: #111; }
+
 
 .calculator {
   background-color: #111;
   border: 6px solid #222;
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 12px;
+  padding: 12px;
   box-shadow: 0 0 10px #000;
+  width: 320px;          
+  max-width: 90vw;
+  height: 520px;         
+  display: grid;
+  grid-template-rows: 90px 1fr;  
+  gap: 12px;
 }
+
 
 #display {
   background-color: #d3d3d3;
-  height: 80px;
+  height: 100%;          
   font-size: 3rem;
-  color: black;
+  color: #000;
   text-align: right;
   padding: 20px;
   border-bottom: 4px solid #444;
-  border-radius: 4px;
-  margin-bottom: 10px;
+  border-radius: 6px;
   font-weight: bold;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  user-select: none;
 }
+
+
+.display-sm { font-size: 2.4rem; }
+.display-xs { font-size: 1.8rem; }
+.display-xxs { font-size: 1.4rem; }
+
+
+.display-error {
+  background-color: #ffefef;
+  border-bottom-color: #d9534f;
+}
+
 
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
+  gap: 8px;
+  grid-auto-rows: 64px;  
+  align-content: start;  
 }
 
 .btn {
-  border: 2px solid black;
-  font-size: 1.8rem;
-  padding: 20px;
+  border: 2px solid #000;
+  font-size: 1.5rem;
+  padding: 0;
   cursor: pointer;
-  border-radius: 3px;
-  transition: all 0.2s ease-in-out;
+  border-radius: 10px;
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+  display: grid;
+  place-items: center;
+  user-select: none;
+  outline: none;
 }
 
-.btn.number,
-#decimal,
-#backspace {
-  background-color: #196562;
-  color: white;
-}
 
-.operator,
-#equals {
-  background-color: #f27d2d;
-  color: black;
-  font-weight: bold;
-}
+.btn.number, #decimal, #backspace { background-color: #1b6f6b; color: #fff; }
+.operator, #equals { background-color: #f08a3c; color: #111; font-weight: 700; }
+.function { background-color: #2a9df4; color: #fff; }
 
-.function {
-  background-color: #2196f3;
-  color: white;
-}
 
 .btn:hover {
-  opacity: 0.9;
-  transform: scale(1.02);
-  transition: all 0.2s;
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+.btn:active { transform: translateY(0); box-shadow: none; opacity: 0.9; }
+
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px rgba(33,150,243,0.8);
 }
 
-#history {
-  background-color: #222;
-  color: #ccc;
-  font-size: 1rem;
-  padding: 10px;
-  margin-top: 10px;
-  max-height: 150px;
-  overflow-y: auto;
-  border-radius: 5px;
-}
-#history p {
-  margin: 5px 0;
+/* Seçili operatör (JS .is-active ekler) */
+.btn.is-active {
+  outline: 2px solid #fff;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px rgba(242,125,45,0.9);
 }
 
 @media (max-width: 400px) {
   .calculator {
-    padding: 8px;
+    width: 300px;
+    height: 500px;           
+    padding: 10px;
+    grid-template-rows: 80px 1fr;
   }
-
-  .buttons {
-    gap: 8px;
-  }
-
-  #display {
-    font-size: 2rem;
-    min-height: 60px;
-  }
-
-  .btn {
-    font-size: 1.2rem;
-    padding: 12px;
-    height: 50px;
-  }
+  #display { font-size: 2.4rem; padding: 16px; }
+  .buttons { grid-auto-rows: 58px; }
+  .btn { font-size: 1.25rem; }
 }
 
 @media (max-width: 320px) {
   .calculator {
-    padding: 5px;
+    width: 280px;
+    height: 470px;           
+    padding: 8px;
+    grid-template-rows: 72px 1fr;
   }
+  #display { font-size: 2rem; padding: 14px; }
+  .buttons { grid-auto-rows: 52px; }
+  .btn { font-size: 1.05rem; }
+}
 
-  .buttons {
-    gap: 5px;
-  }
 
-  #display {
-    font-size: 1.8rem;
-    padding: 10px;
-    min-height: 50px;
+@media (min-width: 768px) {
+  .calculator {
+    width: 380px;
+    height: 560px;         
+    padding: 16px;
+    border-radius: 14px;
+    grid-template-rows: 90px 1fr;
   }
-
-  .btn {
-    font-size: 1rem;
-    padding: 10px;
-    height: 45px;
-  }
+  #display { font-size: 3.2rem; padding: 18px; }
+  .buttons { grid-auto-rows: 70px; }
 }
