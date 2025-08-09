@@ -1,4 +1,3 @@
-// DOM elements
 const display = document.getElementById("display");
 const buttons = document.querySelectorAll(".btn");
 const historyDiv = document.getElementById("history");
@@ -54,7 +53,7 @@ function adjustFontSize() {
     }
     display.style.fontSize = `${newSizePx}px`;
   } else {
-    if (currentDisplayValue === "Sıfıra Bölme!") {
+    if (currentDisplayValue === "Error: division by zero!") {
       display.style.fontSize = `${currentMinFontSize}px`;
     } else {
       display.style.fontSize = `${currentMaxFontSize}px`;
