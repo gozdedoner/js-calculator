@@ -2,6 +2,9 @@ const display = document.getElementById("display");
 const buttons = document.querySelectorAll(".btn");
 const historyDiv = document.getElementById("history");
 
+
+const DIV_ZERO_MSG = "Error: division by zero!";
+
 let currentDisplayValue = "0";
 let firstOperand = null;
 let operator = null;
@@ -53,7 +56,7 @@ function adjustFontSize() {
     }
     display.style.fontSize = `${newSizePx}px`;
   } else {
-    if (currentDisplayValue === "Error: division by zero!") {
+    if (currentDisplayValue === DIV_ZERO_MSG) {
       display.style.fontSize = `${currentMinFontSize}px`;
     } else {
       display.style.fontSize = `${currentMaxFontSize}px`;
@@ -128,7 +131,7 @@ function operate(operatorSymbol, a, b) {
       return multiply(a, b);
     case "/":
       if (b === 0) {
-        return "Sıfıra Bölme!";
+        return DIV_ZERO_MSG;
       }
       return divide(a, b);
     default:
@@ -153,7 +156,7 @@ function divide(a, b) {
 }
 
 function backspace() {
-  if (currentDisplayValue === "Sıfıra Bölme!") {
+  if (currentDisplayValue === DIV_ZERO_MSG) {
     clearCalculator();
     return;
   }
@@ -166,7 +169,7 @@ function backspace() {
 }
 
 function toggleSign() {
-  if (currentDisplayValue === "Sıfıra Bölme!") {
+  if (currentDisplayValue === DIV_ZERO_MSG) {
     clearCalculator();
     return;
   }
@@ -175,7 +178,7 @@ function toggleSign() {
 }
 
 function percent() {
-  if (currentDisplayValue === "Sıfıra Bölme!") {
+  if (currentDisplayValue === DIV_ZERO_MSG) {
     clearCalculator();
     return;
   }
